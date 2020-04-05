@@ -1,0 +1,39 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Автосалон</title>
+</head>
+<body>
+    <div>
+        <h3>Распродажа автомобилей</h3>
+        <table>
+            <tr>
+                <td><p>Производитель</p></td>
+                <td><p>Модель</p></td>
+                <td><p>Цвет</p></td>
+                <td><p>Цена</p></td>
+                <td></td>
+            </tr>
+            @foreach (var car in ViewBag.Cars)
+            {
+                if (!car.Reserve)
+                {
+                <tr>
+                    <td><p>@car.Mark</p></td>
+                    <td><p>@car.Model</p></td>
+                    <td><p>@car.Color</p></td>
+                    <td><p>@car.Price</p></td>
+                    <td><p><a href="/Home/Buy/@car.CarId">Купить</a></p></td>
+                </tr>
+                }
+            }
+        </table>
+    </div>
+</body>
+</html>
